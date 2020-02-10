@@ -1,0 +1,17 @@
+body{
+    margin-top:0rem;
+    margin-left: 0rem;
+    margin-bottom: 0rem;
+    margin-right: 0rem;
+    color : #636b6f;
+    font-family:'Nunito', sans-serif;
+    background-attachment: fixed;
+    background-image: /*url("/images/Volvo-XC40-01.jpg");*/
+    /*background-repeat: no-repeat;*/
+
+}
+
+.title{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}

@@ -27,3 +27,6 @@ Route::get('/', function () {
 Route::get('login', 'Auth\UserRegistrationController@index')->name('login');
 
 Route::post('login/post', 'Auth\UserRegistrationController@store')->name('uuu');
+
+Route::get('home','PostController@create')->name('welcome-page');
+
