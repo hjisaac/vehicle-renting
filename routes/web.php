@@ -30,3 +30,7 @@ Route::post('login/post', 'Auth\UserRegistrationController@store')->name('uuu');
 
 Route::get('home','PostController@create')->name('welcome-page');
 
+Route::get('admin','AdminController@create')->name('administration-page');
+
+
+
