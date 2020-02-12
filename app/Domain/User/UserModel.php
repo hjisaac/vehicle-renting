@@ -7,14 +7,15 @@ use Illuminate\Database\Eloquent\Model ;
 class User extends Model {
 
     // TODO : have to hash the password and remove space from string in setterrs
-    
+
     protected $fillable = [
         'firstname', 
         'lastname', 
         'email', 
         'password', 
         'tel', 
-        'pseudo'
+        'pseudo',
+        'role',
     ];
     
     /**
@@ -24,9 +25,8 @@ class User extends Model {
      */
 
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'role',
     ];
-
 
      /**
      * The attributes that should be cast to native types.

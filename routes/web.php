@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 // Route::get('login', function() {
@@ -24,9 +24,20 @@ Route::get('/', function () {
 // });
 // Route::get('login', 'auth.user');
 
-Route::get('login', 'Auth\UserRegistrationController@index')->name('login');
+Route::get('/register', 'Auth\UserRegistrationController@index')->name('register');
+Route::post('/login', 'Auth\UserRegistrationController@store')->name('register.post');
 
+<<<<<<< HEAD
 Route::post('login/post', 'Auth\UserRegistrationController@store')->name('uuu');
 
 Route::get('home','PostController@create')->name('welcome-page');
 
+=======
+Route::get('/login', 'Auth\UserLoginController@index')->name('login');
+Route::post('/login/post', 'Auth\UserLoginController@store')->name('login.post');
+
+Route::get('/home_', function() {
+    print_r('<hr/>');
+})->name('home_');
+// 
+>>>>>>> tux

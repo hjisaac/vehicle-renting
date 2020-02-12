@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 // use Illuminate\Support\Facades\Validator;
 use App\Domain\User\User;
 
@@ -14,14 +15,24 @@ class UserRegistrationController extends Controller
         $request->validate([
             // 'lastname' => ['required', 'max:5'],
             // 'firstname' => ['required', 'max:5'],
-        ]);
-        $data = $request->all();
-        
-        $data["password"] = Hash::make($data["password"]);
-        User::create($data);
-    }    
 
+                'email' => ['required', 'unique:users']
+        ]);
+        
+        $data = $request->all();
+        $data["password"] = md5($data["password"]);
+        
+        $count = DB::table('users')->count();
+        if($count == 0){
+            $data["role"] = "superadmin";
+        }
+
+        User::create($data);
+        
+        redirect('/login');
+    }    
+    
     public function index(){
-        return view('auth.user');
+        return view('auth.register');
     }
 }

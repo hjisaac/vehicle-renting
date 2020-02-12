@@ -14,11 +14,26 @@
 
    </head>
    <body>
-    <form method="GET" action="">
+
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+
+    <form method="GET" action="/post/create">
         @csrf
 
         <div class="form-group">
-                <div class="col-6 offset-3 text-muted">
+                <div class="col-6 offset-3">
                     <h3 class="title">DEMARRER RESERVATION</h3>
                     <label for="">LIEU LOCATION </label>
                     <span>*</span>
@@ -32,6 +47,10 @@
                     </datalist>
                 </div>
         </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> tux
         <div class="form-group">
             <div class="col-6 offset-3">
                 <label for="">LIEU RETOUR</label>
@@ -125,9 +144,18 @@
             </div>
         </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> tux
     </form>
       @yield('content')
    </body>
 </html>
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> tux
