@@ -11,8 +11,14 @@
 |
 */
 
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+
+
 Route::get('/', function () {
-    return view('home');
+    return redirect('start');
 });
 
 // Route::get('login', function() {
@@ -27,17 +33,9 @@ Route::get('/', function () {
 Route::get('/register', 'Auth\UserRegistrationController@index')->name('register');
 Route::post('/login', 'Auth\UserRegistrationController@store')->name('register.post');
 
-<<<<<<< HEAD
-Route::post('login/post', 'Auth\UserRegistrationController@store')->name('uuu');
-
-Route::get('home','PostController@create')->name('welcome-page');
-
-=======
 Route::get('/login', 'Auth\UserLoginController@index')->name('login');
 Route::post('/login/post', 'Auth\UserLoginController@store')->name('login.post');
 
-Route::get('/home_', function() {
-    print_r('<hr/>');
-})->name('home_');
-// 
->>>>>>> tux
+Route::get('/start', 'Reservation\StartReservationController@index')->name('start');
+Route::post('/start/post', 'Reservation\StartReservationController@store')->name('start.post');
+

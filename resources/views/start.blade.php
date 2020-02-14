@@ -29,7 +29,8 @@
                 </div>
             @endif
 
-    <form method="GET" action="/post/create">
+    <form method="POST" action="{{ action('Reservation\StartReservationController@store') }}">
+    
         @csrf
 
         <div class="form-group">
@@ -37,7 +38,7 @@
                     <h3 class="title">DEMARRER RESERVATION</h3>
                     <label for="">LIEU LOCATION </label>
                     <span>*</span>
-                    <input list="browsers" name="browser" type="text" class="form-control form-control-lg" >
+                    <input list="browsers" type="text" class="form-control form-control-lg" name="pickup_date">
                     <datalist id="browsers">
                             <option value="Internet Explorer">
                             <option value="Firefox">
@@ -47,15 +48,11 @@
                     </datalist>
                 </div>
         </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> tux
         <div class="form-group">
             <div class="col-6 offset-3">
                 <label for="">LIEU RETOUR</label>
                 <span>*</span>
-                <input list="browsers" name="browser" type="text" class="form-control form-control-lg" >
+                <input list="browsers" type="text" class="form-control form-control-lg" name="returned_location">
                 <datalist id="browsers">
                         <option value="Internet Explorer">
                         <option value="Firefox">
@@ -72,7 +69,7 @@
                 <div class="form-group col-md-6">
                     <label for="">DATE LOCATION</label>
                     <span>*</span>
-                    <input id="datepickerstart" width="320" class="form-control form-control-lg"/>
+                    <input id="datepickerstart" width="320" class="form-control form-control-lg" name="pickup_date"/>
                     <script>
                             $('#datepickerstart').datepicker({
                                 uiLibrary: 'bootstrap4'
@@ -83,7 +80,7 @@
                 <div class="form-group col-md-6">
                     <label for="">DATE RETOUR</label>
                     <span>*</span>
-                    <input id="datepickerend" width="320" class="form-control form-control-lg"/>
+                    <input id="datepickerend" width="320" class="form-control form-control-lg" name="returned_date"/>
                     <script>
                             $('#datepickerend').datepicker({
                                 uiLibrary: 'bootstrap4'
@@ -100,7 +97,7 @@
                 <div class="form-group col-md-6">
                     <label for="">HEURE LOCATION</label>
                     <span>*</span>
-                    <input id="timepickerstart" width="320" class="form-control form-control-lg"/>
+                    <input id="timepickerstart" width="320" class="form-control form-control-lg" name="pickup_heure"/>
                     <script>
                         $('#timepickerstart').timepicker({
                             uiLibrary: 'bootstrap4'
@@ -111,7 +108,7 @@
                 <div class="form-group col-md-6">
                     <label for="">HEURE RETOUR</label>
                     <span>*</span>
-                    <input id="timepickerend" width="320" class="form-control form-control-lg"/>
+                    <input id="timepickerend" width="320" class="form-control form-control-lg" name="returned_heure"/>
 
                     <script>
                             $('#timepickerend').timepicker({
@@ -126,7 +123,7 @@
         <div class="form-group">
             <div class="col-6 offset-3">
                 <label for="">TYPE VEHICULE</label>
-                <input list="browsers" name="browser" type="text" class="form-control form-control-lg" >
+                <input list="browsers" name="vehicle_type" type="text" class="form-control form-control-lg" >
                 <datalist id="browsers">
                         <option value="Internet Explorer">
                         <option value="Firefox">
@@ -140,22 +137,15 @@
 
         <div class="form-group">
             <div class="col-6 offset-3">
-                <button type="button" class="btn btn btn-primary btn-lg float-right">Continuer</button>
+                <button type="submit" class="btn btn btn-primary btn-lg float-right">Continuer</button>
             </div>
         </div>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> tux
     </form>
       @yield('content')
    </body>
 </html>
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> tux

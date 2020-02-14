@@ -20,7 +20,10 @@ class UserRegistrationController extends Controller
         ]);
         
         $data = $request->all();
+
         $data["password"] = md5($data["password"]);
+        
+        $data["email"] = trim($data["email"]); // trimming email 
         
         $count = DB::table('users')->count();
         if($count == 0){
@@ -28,8 +31,9 @@ class UserRegistrationController extends Controller
         }
 
         User::create($data);
-        
-        redirect('/login');
+
+        return view('auth.login');
+        // return redirect('/login');
     }    
     
     public function index(){

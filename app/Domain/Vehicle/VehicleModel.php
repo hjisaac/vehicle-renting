@@ -4,8 +4,8 @@ namespace App\Domain\Vehicle;
 
 use Illuminate\Database\Eloquent\Model;
 
-class VehicleModel extends Model {
+class Vehicle extends Model {
 
     private $name;
-    private $registration_number;
+    private $registrationNumber;
 }

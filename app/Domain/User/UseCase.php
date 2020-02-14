@@ -4,7 +4,7 @@ namespace App\Domain\User\UserModel ;
 
 class UseCase {
 
-    // TODO : have to hash the password and remove space from string in setterrs
+    // TODO : have to hash the password and remove space from string in
 
     protected $_firstname ;
     protected $_lastname ;

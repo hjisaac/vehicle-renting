@@ -17,8 +17,8 @@ class CreateReservationsTable extends Migration
             $table->bigIncrements('id');
             $table->dateTime('pickup_date');
             $table->dateTime('returned_date');
-            $table->dateTime('pickup_location');
-            $table->dateTime('returned_location');
+            $table->string('pickup_location');
+            $table->string('returned_location');
             $table->bigInteger('user_id');
             $table->bigInteger('vehicle_id');
             // $table->foreign('vehicle_id')->references('id')->on('vehicles');
