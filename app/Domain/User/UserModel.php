@@ -13,7 +13,7 @@ class User extends Model {
         'lastname', 
         'email', 
         'password', 
-        'tel', 
+        'telephone',
         'pseudo',
         'role',
     ];

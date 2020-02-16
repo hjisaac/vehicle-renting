@@ -16,14 +16,14 @@
    <body>
 
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="navbar navbar-light bg-light">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a class="nav-link" href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a class="nav-link offset-10 float-right" href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a class="nav-link" href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
                 </div>
@@ -136,8 +136,8 @@
         </div>
 
         <div class="form-group">
-            <div class="col-6 offset-3">
-                <button type="submit" class="btn btn btn-primary btn-lg float-right">Continuer</button>
+            <div class="col-6  offset-3">
+                <button type="submit" class="btn btn btn-primary btn-lg mb-2 float-right">Continuer</button>
             </div>
         </div>
 

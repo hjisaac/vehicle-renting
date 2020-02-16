@@ -6,14 +6,30 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserLoginController extends Controller
 {
-    public function index(){
+
+    function  __construct()
+    {
+        $this->Middleware('guest')->except('logout');
+
+    }
+
+    public function showLoginForm(){
         return view('auth.login');
     }
 
-    public function store(Request $request){
+    public function checkLoginForm(Request $request){
+
+        $request->validate(
+            [
+                'email'=>'required|email',
+                'password'=>'required'
+            ]
+        );
+
         $data = $request->all();
 
         $user = DB::table('users')->where('email', $data["email"])->first();
@@ -28,13 +44,17 @@ class UserLoginController extends Controller
 
         if($user->role == "admin"){
             print_r("admin view");
-            return;
+            return  redirect('/admin');
         }
         
         if($user->role == "superadmin"){
             print_r("super admin view superadmin");
-            return;
+            return redirect('/admin');
         }
-        return redirect('/home');
+        return redirect('/start');
+    }
+
+    public function  logout(){
+        Auth::logout();
     }
 }

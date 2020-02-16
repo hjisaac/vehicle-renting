@@ -4,13 +4,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Register</title>
 
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css')}}"/>
-        <script src="{{ asset('js/bootstrap.js')}}" type="text/javascript"> 
+        <script src="{{ asset('js/bootstrap.js')}}" type="text/javascript">
 
         </script>
-        <!-- <form action="login/post" method="POST"> -->
+    </head>
+
+    <body>
+
+    <div class="col-6 offset-3 text-muted font-italic">
+
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -21,47 +26,53 @@
                 </ul>
             </div>
         @endif
+        <h3 class="mt-4 pt-2 pl-2 pb-2 mb-4 font-weight-bold bg-light rounded">Register</h3>
+        <form method="POST" action="{{ action('Auth\UserRegistrationController@checkRegisterForm') }}">
+            {{csrf_field()}}
 
-
-
-        <form method="POST" action="{{ action('Auth\UserRegistrationController@store') }}">
-        {{csrf_field()}}
-            <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group">
+                <label for="inputAddress">Firstname</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="firstname">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2">Lastname</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" name="lastname">
+            </div>
+            <div class="form-group ">
                 <label for="inputEmail4">Email</label>
                 <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group ">
                 <label for="inputPassword4">Password</label>
                 <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="password">
             </div>
+            <div class="form-group ">
+                <label for="inputPassword4">Confirm Password</label>
+                <input type="password" class="form-control" id="inputConfirmPassword4" placeholder="Password" name="confirmpassword">
             </div>
-            <div class="form-group">
-            <label for="inputAddress">Firstname</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="firstname">
-            </div>
-            <div class="form-group">
-            <label for="inputAddress2">Lastname</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" name="lastname">
-            </div>
-            <div class="form-row">
-            <div class="form-group col-md-6">
+
+
+            <div class="form-group ">
                 <label for="inputCity">Pseudo</label>
                 <input type="text" class="form-control" id="inputCity" name="pseudo">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group ">
                 <label for="inputState">Telephone</label>
-                <input type="text" class="form-control" id="inputCity" name="tel">
+                <input type="text" class="form-control" id="inputCity" name="telephone">
             </div>
-            
-            </div>
+
+
             <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                Check me out
-                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Check me out
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary float-right mb-2 font-italic">Register</button>
             </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
+    </div>
+    </body>
+</html>
+

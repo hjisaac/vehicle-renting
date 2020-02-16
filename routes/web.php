@@ -30,12 +30,21 @@ Route::get('/', function () {
 // });
 // Route::get('login', 'auth.user');
 
-Route::get('/register', 'Auth\UserRegistrationController@index')->name('register');
-Route::post('/login', 'Auth\UserRegistrationController@store')->name('register.post');
+Route::get('/register', 'Auth\UserRegistrationController@showRegisterForm')->name('register');
+Route::post('/register/post', 'Auth\UserRegistrationController@checkRegisterForm')->name('register.post');
 
-Route::get('/login', 'Auth\UserLoginController@index')->name('login');
-Route::post('/login/post', 'Auth\UserLoginController@store')->name('login.post');
+Route::get('/login', 'Auth\UserLoginController@showLoginForm')->name('login');
+Route::post('/login/post', 'Auth\UserLoginController@checkLoginForm')->name('login.post');
 
 Route::get('/start', 'Reservation\StartReservationController@index')->name('start');
 Route::post('/start/post', 'Reservation\StartReservationController@store')->name('start.post');
+
+Route::get('vehicle','VehicleController@create');
+Route::post('/vehicle/post','VehicleController@store');
+
+Route::get('admin','VehicleController@index')->name('admin-dashboard');
+
+Route::post('/vehicle/editer/{id}','VehicleController@editer');
+Route::get('/vehicle/supprimer/{id}','VehicleController@supprimer');
+
 
