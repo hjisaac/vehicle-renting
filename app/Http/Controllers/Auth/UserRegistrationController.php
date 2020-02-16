@@ -16,7 +16,7 @@ class UserRegistrationController extends Controller
             'lastname' => ['required', 'max:30',''],
             'firstname' => ['required', 'max:30'],
             'email' => ['required', 'unique:users'],
-            'password' => ['required'],
+            'password' => ['required','mim:6'],
             'confirmpassword'=>['required'],
             'telephone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:6'
         ]);

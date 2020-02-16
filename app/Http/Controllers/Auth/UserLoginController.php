@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UserLoginController extends Controller
 {
@@ -43,13 +44,13 @@ class UserLoginController extends Controller
         }
 
         if($user->role == "admin"){
-            print_r("admin view");
-            return  redirect('/admin');
+
+            return  redirect()->action('VehicleController@index');
         }
         
         if($user->role == "superadmin"){
-            print_r("super admin view superadmin");
-            return redirect('/admin');
+
+            return redirect()->action('VehicleController@index');
         }
         return redirect('/start');
     }

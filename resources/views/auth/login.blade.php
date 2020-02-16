@@ -25,7 +25,7 @@
         </div>
     @endif
         <h3 class="mt-4 pt-2 pl-2 pb-2 mb-4 font-weight-bold bg-light rounded">Login</h3>
-        <form method="POST" action="{{ action('Auth\UserLoginController@showLoginForm') }}">
+        <form method="POST" action="{{ action('Auth\UserLoginController@checkLoginForm') }}">
             {{csrf_field()}}
 
                 <div class="form-group ">
